@@ -21,6 +21,16 @@ public class MemberController {
     return "index";
   }
 
+  @GetMapping("/admin")
+  public String admin() {
+    return "admin";
+  }
+
+  @GetMapping("/user")
+  public String user() {
+    return "user";
+  }
+
   @GetMapping("/signup")
   public String signup(Model model) {
     model.addAttribute("myuser", new MyUserForm());
