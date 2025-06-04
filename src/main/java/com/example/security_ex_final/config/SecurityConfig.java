@@ -33,10 +33,11 @@ public class SecurityConfig {
             .loginProcessingUrl("/login_process")
             .usernameParameter("userid")
             .passwordParameter("pwd")
-            .successHandler((request, response, authentication) -> {
-              Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-              response.sendRedirect("/");
-            })
+            .defaultSuccessUrl("/member", true)
+//            .successHandler((request, response, authentication) -> {
+//              Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+//              response.sendRedirect("/member");
+//            })
             .failureHandler((request, response, exception) -> {
               log.info("Login failed: {} " , exception.getMessage());
               response.sendRedirect("/login?error");

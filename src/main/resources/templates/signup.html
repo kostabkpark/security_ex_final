@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>회원가입</title>
 </head>
 <body>
     <div th:if="${param.error}">
         <p style="color:red">사용자 혹은 암호 오류</p>
     </div>
-    <form th:action="@{/login_process}" method="post" th:object="${myuser}">
+    <form th:action method="post" th:object="${myuser}">
         userid <input type="text" th:field="*{userid}"> <br>
         password <input type="password" th:field="*{pwd}"> <br>
-        <input type="submit" value="로그인">
+        <input type="submit" value="회원가입">
     </form>
 </body>
 </html>

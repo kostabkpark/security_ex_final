@@ -1,10 +1,12 @@
 package com.example.security_ex_final.entity;
 
+import com.example.security_ex_final.form.MyUserForm;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
 @Table(name = "users")
@@ -25,4 +27,8 @@ public class MyUser {
   private String displayName;
   @Column(length = 20)
   private String phoneNumber;
+
+  public static MyUser createUser(MyUserForm form, PasswordEncoder passwordEncoder) {
+    return new MyUser(form.getUserid(), passwordEncoder.encode(form.getPwd()), "USER", null, null);
+  }
 }
