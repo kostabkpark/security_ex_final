@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/login_process}" method="post" th:object="${myuser}">
+        userid <input type="text" th:field="*{userid}"> <br>
+        password <input type="password" th:field="*{pwd}"> <br>
+        <input type="submit" value="로그인">
+    </form>
+</body>
+</html>
